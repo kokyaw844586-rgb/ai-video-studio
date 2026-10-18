@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Video Studio</title>
+<style>
+body {
+  margin: 0;
+  padding: 25px;
+  background: #0b1020;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+main {
+  max-width: 600px;
+  margin: 50px auto;
+}
+textarea, select, button {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+textarea, select {
+  background: #182238;
+  color: white;
+  border: 1px solid #46516b;
+}
+button {
+  background: #7565ff;
+  color: white;
+  border: 0;
+  font-size: 16px;
+}
+#result {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>🎬 AI Video Studio</h1>
+  <p>Turn your ideas into videos ✨</p>
+
+  <h3>Describe your video</h3>
+  <textarea id="prompt" rows="5"
+    placeholder="Describe your video idea..."></textarea>
+
+  <select id="style">
+    <option>Cinematic</option>
+    <option>Anime</option>
+    <option>Realistic</option>
+    <option>Fantasy</option>
+  </select>
+
+  <button onclick="generate()">
+    ✨ Prepare Video
+  </button>
+
+  <p id="result"></p>
+</main>
+
+<script>
+function generate() {
+  const prompt =
+    document.getElementById("prompt").value.trim();
+  const style =
+    document.getElementById("style").value;
+
+  const result = document.getElementById("result");
+
+  if (!prompt) {
+    result.textContent = "Please enter a video idea.";
+    return;
+  }
+
+  result.textContent =
+    "Your video idea is ready!\\n\\n" +
+    "Prompt: " + prompt +
+    "\\nStyle: " + style +
+    "\\n\\nAI video generation API is not connected yet.";
+}
+</script>
+</body>
+</html>
